@@ -9,8 +9,8 @@ namespace RPSLS_Project
     public class Game
     {
         //member variable
-        public string singlePlayerMode;
-        public string twoPlayerMode;
+        public Player player1;
+        public Player player2;
         //constructor
         public Game()
         {
@@ -18,20 +18,49 @@ namespace RPSLS_Project
         }
 
         //member method
-        public void ChooseGameMode()
+        public void DisplayRules()
         {
-            //single player or two player
+            Console.WriteLine("Game Rules: " +
+                               "\n *Rock crushes Scissors " +
+                               "\n *Scissors cuts Paper " +
+                               "\n *Paper covers Rock " +
+                               "\n *Rock crushes Lizard " +
+                               "\n *Lizard poisons Spock " +
+                               "\n *Spock smashes Scissors" +
+                               "\n *Scissors decapitates Lizard" +
+                               "\n *Lizard eats Paper" +
+                               "\n *Paper disproves Spock" +
+                               "\n *Spock vaporizes Rock");
         }
-        public void DisplayGestureOptions()
+        public string ChooseGameMode()
         {
-            //player 1 chooses gesture
-            //player two chooses gesture
-            //or AI chooses random gesture
+            Console.WriteLine("Choose Game Mode" + "\n 1. Single Player" + "\n 2. Two Player");
+            string numberPlayers = Console.ReadLine();
+            return numberPlayers;
+        }
 
-        }
-        public void AssignPlayerGesture()
+        public void SetGameMode(string numberPlayers)
         {
-            //displays players gesture choice
+            if(numberPlayers == "1")
+            {
+                player1 = new Human();
+                player2 = new Ai();
+            }
+            else if (numberPlayers == "2")
+            {
+                player1 = new Human();
+                player2 = new Human();
+            }
+        }
+
+       
+
+
+        
+        
+        public void CompareGesture()
+        {
+
         }
         public void DisplayRoundWinner()
         {
@@ -40,6 +69,20 @@ namespace RPSLS_Project
         public void DisplayGameWinner()
         {
             //displays winner after best out of 2/3: the overall game winner
+        }
+        public void RunGame()
+        {
+            DisplayRules();
+
+            Console.WriteLine("Press Enter to Continue");
+            Console.ReadLine();
+            string players = ChooseGameMode();
+            SetGameMode(players);
+            Console.WriteLine("Press Enter to Start Game");
+            Console.ReadLine();
+            player1.ChooseGesture();
+            player2.ChooseGesture();
+            
         }
     }
 }

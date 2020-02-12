@@ -9,58 +9,27 @@ namespace RPSLS_Project
     public class Gesture
     {
         //member variable
-        public string paper;
-        public string rock;
-        public string scissors;
-        public string lizard;
-        public string spock;
+        public string name;
+        public string beats1;
+        public string beats2;
+
 
         //constructor
-        public Gesture(string choice)
+        public Gesture(string gesture)
+        {
+            name = gesture;
+
+        }
+
+       
+        public Gesture()
         {
 
         }
 
         //member method
-        public void RockCrushesPaper()
-        {
+         
 
-        }
-        public void ScissorsCutsPaper()
-        {
-
-        }
-        public void PaperCoversRock()
-        {
-
-        }
-        public void RockCrushesLizard()
-        {
-
-        }
-        public void LizardPoisonsSpock()
-        {
-
-        }
-        public void SpockSmashesScissors()
-        {
-
-        }
-        public void ScissorsDecpitatesLizard()
-        {
-
-        }
-        public void LizardEatsPaper()
-        {
-
-        }
-        public void PaperDisprovesSpock()
-        {
-
-        }
-        public void SpockVaporizesRock()
-        {
-
-        }
+    
     }
 }

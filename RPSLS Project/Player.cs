@@ -6,30 +6,31 @@ using System.Threading.Tasks;
 
 namespace RPSLS_Project
 {
-   public class Player
+   abstract public class Player
     {
         //member variable
         public string name;
-        public List<Gesture> gesture;
+        public string score;
+        public List<Gesture>gestureList;
 
         //constructor
-        public Player(string name)
+        public Player()
         {
-            this.name = name;
-            gesture = new List<Gesture>() { new Gesture ("Rock"), new Gesture ("Paper"), new Gesture("Scissors"), new Gesture("Lizard"), new Gesture ("Spock") };
+            gestureList = new List<Gesture>() { new Gesture("0: Rock"), new Gesture("1: Paper"), new Gesture("2: Scissors"), new Gesture("3: Lizard"), new Gesture("4: Spock")};  
+            
         }
-        
+
+
 
         //member method
-        public void ChooseGesture()
-        {
+        public abstract string ChooseGesture();
+        
 
-        }
-
-        public void RandomGesture()
-        {
-
-        }
+        
+        
+      
+        
+        
     }
     
     

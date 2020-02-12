@@ -10,6 +10,10 @@ namespace RPSLS_Project
     {
         static void Main(string[] args)
         {
+            Game runGame = new Game();
+            runGame.RunGame();
+            Console.ReadLine();
+            
         }
     }
 }
