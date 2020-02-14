@@ -23,7 +23,7 @@ namespace RPSLS_Project
 
 
         //member method
-        public abstract string ChooseGesture();
+        public abstract int ChooseGesture();
         
 
         

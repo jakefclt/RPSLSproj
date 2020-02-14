@@ -8,10 +8,11 @@ namespace RPSLS_Project
 {
    public class Ai : Player
     {
-        public override string ChooseGesture()
+        public override int ChooseGesture()
         {
-
-            return "a";
+            Random random = new Random();
+            int AiChoice = random.Next(0, 4);
+            return AiChoice;
         }
     }
 }

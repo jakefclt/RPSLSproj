@@ -11,6 +11,8 @@ namespace RPSLS_Project
         //member variable
         public Player player1;
         public Player player2;
+        int counter1= 0;
+        int counter2= 0;
         //constructor
         public Game()
         {
@@ -53,23 +55,63 @@ namespace RPSLS_Project
             }
         }
 
-       
+
 
 
         
-        
-        public void CompareGesture()
-        {
 
-        }
-        public void DisplayRoundWinner()
+        public void CompareGesture(int player1Gesture, int player2Gesture)
         {
-            // displays winner after each round
-        }
-        public void DisplayGameWinner()
+           
+                if (player1Gesture == player2Gesture)
+                {
+                    Console.WriteLine("This round is a Tie!");
+                    counter1++;
+                }
+                if (player1Gesture == 0 && player2Gesture == 2 || player2Gesture == 3)
+                {
+                    Console.WriteLine("Player 1 Wins the Round!");
+                    counter1++;
+                }
+                if (player1Gesture == 2 && player2Gesture == 1 || player2Gesture == 3)
+                {
+                    Console.WriteLine("Player 1 Wins the Round!");
+                    counter1++;
+                }
+                if (player1Gesture == 1 && player2Gesture == 0 || player2Gesture == 4)
+                {
+                    Console.WriteLine("Player 1 Wins the Round!");
+                    counter1++;
+                }
+                if (player1Gesture == 3 && player2Gesture == 4 || player2Gesture == 1)
+                {
+                    Console.WriteLine("Player 1 Wins the Round!");
+                    counter1++;
+                }
+                if (player1Gesture == 4 && player2Gesture == 2 || player2Gesture == 0)
+                {
+                    Console.WriteLine("Player 1 Wins the Round!");
+                    counter1++;
+                }
+                else
+                {
+                    Console.WriteLine("Player 2 Wins the Round!");
+                    counter2++;
+                }
+            
+        }  
+        public void DisplayWinner()
         {
-            //displays winner after best out of 2/3: the overall game winner
+            if (counter1 > 2)
+            {
+                Console.WriteLine("Player 1 Wins the Game!");
+            }
+            if(counter2 > 2)
+            {
+                Console.WriteLine("Player 2 Wins the Game!");
+            }
         }
+   
         public void RunGame()
         {
             DisplayRules();
@@ -78,11 +120,17 @@ namespace RPSLS_Project
             Console.ReadLine();
             string players = ChooseGameMode();
             SetGameMode(players);
-            Console.WriteLine("Press Enter to Start Game");
-            Console.ReadLine();
-            player1.ChooseGesture();
-            player2.ChooseGesture();
-            
+            while (counter1 < 2 || counter2 < 2)
+            {
+                Console.WriteLine("Press Enter to Start Game");
+                Console.ReadLine();
+                Console.WriteLine("Choose Gesture");
+
+                player1.ChooseGesture();
+                int AiChoice= player2.ChooseGesture();
+                CompareGesture(player1.ChooseGesture(), player2.ChooseGesture());
+                DisplayWinner();
+            }
         }
     }
 }

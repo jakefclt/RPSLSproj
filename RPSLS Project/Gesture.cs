@@ -12,20 +12,19 @@ namespace RPSLS_Project
         public string name;
         public string beats1;
         public string beats2;
-
+        public Player player;
+     
 
         //constructor
         public Gesture(string gesture)
         {
             name = gesture;
-
+         
         }
 
        
-        public Gesture()
-        {
+       
 
-        }
 
         //member method
          

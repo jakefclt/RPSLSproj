@@ -8,7 +8,7 @@ namespace RPSLS_Project
 {
    public class Human : Player 
     {
-        public override string ChooseGesture()
+        public override int ChooseGesture()
         {
             
             for (int i = 0; i < gestureList.Count; i++)
@@ -16,8 +16,9 @@ namespace RPSLS_Project
                 Console.WriteLine(gestureList[i].name);                               
                              
             }
-            string result = Console.ReadLine();
+            int result = int.Parse(Console.ReadLine());
             return result;
+
             
 
         }
